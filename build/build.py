@@ -16,17 +16,13 @@ TO_SKIP = (
 )
 
 # Verify directory structure
-for d in ('content', 'source'):
-    if not os.path.exists(d):
-	    raise OSError(f"expected directory {d} in working directory")
+if not os.path.exists('content'):
+    raise OSError(f"expected directory `content` in working directory")
 	
-# Remove existing post/image directory
-post_src_dir = os.path.join('source', '_posts')
-img_src_dir = os.path.join('source', 'images')
-for d in (post_src_dir, img_src_dir):
-    if os.path.exists(d):
-	    shutil.rmtree(d)
-    os.mkdir(d)
+# Remove existing source files
+if os.path.exists('source'):
+    shutil.rmtree('source')
+os.mkdir('source')
 
 #### BUILD ####
 
