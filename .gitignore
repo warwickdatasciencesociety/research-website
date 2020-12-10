@@ -1,0 +1,15 @@
+# Hexo
+source/
+
+# Node
+node_modules/
+package-lock.json
+
+# Python
+.ipynb_checkpoints/
+
+# General
+.DS_Store
+tmp/
+.tmp*
+
