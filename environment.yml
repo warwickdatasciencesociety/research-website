@@ -1,4 +1,4 @@
-name: wdss-research-blog
+name: wdss-research-website
 channels:
   - conda-forge
   - defaults
