@@ -55,7 +55,7 @@ for i, post in enumerate(posts):
         image=post,
         # TODO: run as Python script
         command=' '.join([
-            'ls /home/jovyan/work -alR && jupyter nbconvert',
+            'ls /home/jovyan/work -alR & jupyter nbconvert',
             '--execute',
             '/home/jovyan/work/post.ipynb',
             '--MarkdownExporter.preprocessors',
