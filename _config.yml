@@ -3,19 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
+title: Research @ WDSS
+subtitle: 'Student-led research powered by data science'
+description: 'Warwick Data Science Society is a student-led organisation focused on the practical and interdisiplinary applications of data science, to solve pressing problems and generate new insight.'
+keywords: warwick, data, science, society, university, uni, student, academia, academic, undergraduate, masters, blog, post, blogs, research, essay, article, paper, analytics, coding, statistics, mathematics, computer
+author: Warwick Data Science Society
 language: en
-timezone: ''
+timezone: 'Europe/London'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
-url: http://example.com
+url: https://dev.research.wdss.io/
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -82,7 +82,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'mtime'
+updated_option: 'date'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
