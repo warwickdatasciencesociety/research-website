@@ -23,6 +23,8 @@ if not os.path.exists('content'):
 if os.path.exists('source'):
     shutil.rmtree('source')
 os.mkdir('source')
+os.mkdir(os.path.join('source', '_posts'))
+os.mkdir(os.path.join('source', 'images'))
 
 #### BUILD ####
 
@@ -54,7 +56,7 @@ for i, post in enumerate(posts):
     con = client.containers.run(
         image=post,
         # TODO: run as Python script
-        command='ls /home/jovyan/work -alR; ' + ' '.join([
+        command='bash -c "ls /home/jovyan/work -alR && ' + ' '.join([
             'jupyter nbconvert',
             '--execute',
             '/home/jovyan/work/post.ipynb',
@@ -69,7 +71,7 @@ for i, post in enumerate(posts):
 	        '--TagRemovePreprocessor.remove_all_outputs_tags', 
 	        '"remove_all_output"',
 	        '--to markdown',
-        ]),
+        ]) + '"',
         remove=True,
         volumes={
             os.path.join(os.getcwd(), post_dir): {'bind': '/home/jovyan/work',
@@ -102,8 +104,9 @@ for i, post in enumerate(posts):
         f.write(contents)
     
     # Move files
-    shutil.move(post_path, os.path.join(post_src_dir, f'{post}.md'))
+    shutil.move(post_path, os.path.join('source', '_posts', f'{post}.md'))
     if os.path.exists(post_support_files_dir):
+        img_src_dir = os.path.join('source', 'images')
         os.mkdir(os.path.join(img_src_dir, post))
         for image in os.listdir(post_support_files_dir):
             shutil.move(os.path.join(post_support_files_dir, image),
