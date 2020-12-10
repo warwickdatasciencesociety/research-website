@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 
 import docker
@@ -89,11 +90,23 @@ for i, post in enumerate(posts):
         except StopIteration:
             break
     
-    # TODO: Make post corrections
+    # Format notebook
+    # TODO: move formatting into Docker container
+    post_path = os.path.join(post_dir, 'post.md')
+    with open(post_path, 'r', encoding='utf8') as f:
+        contents = f.read()
+
+        # Correct image paths
+        contents = re.sub(f'post_files/', f'/images/{post}/', contents)
+
+        # Remove captions
+        contents = re.sub(r'!\[\w+\]', '![]', contents)
+
+    with open(post_path, 'w', encoding='utf8') as f:
+        f.write(contents)
     
     # Move files
-    shutil.move(os.path.join(post_dir, 'post.md'),
-                os.path.join(post_src_dir, f'{post}.md'))
+    shutil.move(post_path, os.path.join(post_src_dir, f'{post}.md'))
     if os.path.exists(post_support_files_dir):
         os.mkdir(os.path.join(img_src_dir, post))
         for image in os.listdir(post_support_files_dir):
