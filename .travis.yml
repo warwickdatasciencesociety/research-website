@@ -13,6 +13,7 @@ install:
   - bash miniconda.sh -b -p $HOME/miniconda
   - source "$HOME/miniconda/etc/profile.d/conda.sh"
   - hash -r
+  - rm miniconda.sh
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a
