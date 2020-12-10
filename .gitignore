@@ -1,5 +1,6 @@
 # Hexo
 source/
+db.json
 
 # Node
 node_modules/
