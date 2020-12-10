@@ -120,3 +120,11 @@ feed:
   autodiscovery: true
   template:
 
+# Sitemap
+sitemap:
+  path: sitemap.xml
+  template:
+  rel: true
+  tags: true
+  categories: true
+
