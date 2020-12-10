@@ -2,6 +2,10 @@ language: minimal
 branches:
   only:
   - main
+services:
+  - docker
+before_install:
+  - docker pull jupyter/scipy-notebook jupyter/r-notebook
 install:
   # Set up Conda
   - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
