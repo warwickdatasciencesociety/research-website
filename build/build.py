@@ -54,7 +54,22 @@ for i, post in enumerate(posts):
     con = client.containers.run(
         image=post,
         # TODO: run as Python script
-        command='ls /home/jovyan/work -alR',
+        command='ls /home/jovyan/work -alR; ' + ' '.join([
+            'jupyter nbconvert',
+            '--execute',
+            '/home/jovyan/work/post.ipynb',
+            '--MarkdownExporter.preprocessors',
+            '"nbconvert.preprocessors.TagRemovePreprocessor"',
+	        '--TagRemovePreprocessor.remove_cell_tags',
+	        '"remove_cell"',
+	        '--TagRemovePreprocessor.remove_input_tags',
+	        '"remove_input"',
+	        '--TagRemovePreprocessor.remove_single_output_tags',
+	        '"remove_single_output"',
+	        '--TagRemovePreprocessor.remove_all_outputs_tags', 
+	        '"remove_all_output"',
+	        '--to markdown',
+        ]),
         remove=True,
         volumes={
             os.path.join(os.getcwd(), post_dir): {'bind': '/home/jovyan/work',

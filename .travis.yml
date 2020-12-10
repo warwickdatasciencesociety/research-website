@@ -21,7 +21,7 @@ install:
   - npm install -g hexo-cli
   - npm install
 before_script:
-  - ls -alR  # debug
+  - ls content -alR  # debug
   - python build/build.py
 script:
   - hexo generate
