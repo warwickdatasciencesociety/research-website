@@ -17,7 +17,7 @@ TO_SKIP = (
 
 # Verify directory structure
 for d in ('content', 'source'):
-    if not os.path.exists('content'):
+    if not os.path.exists(d):
 	    raise OSError(f"expected directory {d} in working directory")
 	
 # Remove existing post/image directory
