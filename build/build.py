@@ -56,7 +56,7 @@ for i, post in enumerate(posts):
     con = client.containers.run(
         image=post,
         # TODO: run as Python script
-        command='bash -c "ls /home/jovyan/work -alR && ' + ' '.join([
+        command='bash -c "whoami && ls /home/jovyan/work -alR && ' + ' '.join([
             'jupyter nbconvert',
             '--execute',
             '/home/jovyan/work/post.ipynb',
