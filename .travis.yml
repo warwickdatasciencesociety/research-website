@@ -4,8 +4,6 @@ branches:
   - main
 services:
   - docker
-before_install:
-  - chmod -R 777 .
 install:
   # Set up Conda
   - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
@@ -23,8 +21,7 @@ install:
   - npm install -g hexo-cli
   - npm install
 before_script:
-  - ls content -alR  # debug
-  - sudo python build/build.py
+  - python build/build.py
 script:
   - hexo generate
 

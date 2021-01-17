@@ -56,7 +56,7 @@ for i, post in enumerate(posts):
     con = client.containers.run(
         image=post,
         # TODO: run as Python script
-        command='bash -c "whoami && ls /home/jovyan/work -alR && ' + ' '.join([
+        command='bash -c "' + ' '.join([
             'jupyter nbconvert',
             '--execute',
             '/home/jovyan/work/post.ipynb',
@@ -71,6 +71,9 @@ for i, post in enumerate(posts):
 	        '--TagRemovePreprocessor.remove_all_outputs_tags', 
 	        '"remove_all_output"',
 	        '--to markdown',
+	        # Temporary fix. Would be better to match up user ids
+	        '&& chmod 777 /home/jovyan/work/post.md',
+	        '&& chmod -R 777 /home/jovyan/work/post_files',
         ]) + '"',
         remove=True,
         volumes={
