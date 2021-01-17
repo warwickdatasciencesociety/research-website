@@ -24,7 +24,7 @@ install:
   - npm install
 before_script:
   - ls content -alR  # debug
-  - python build/build.py
+  - sudo python build/build.py
 script:
   - hexo generate
 
