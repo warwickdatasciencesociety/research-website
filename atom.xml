@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Research @ WDSS</title>
+  
+  <subtitle>Student-led research powered by data science</subtitle>
+  <link href="https://dev.research.wdss.io/atom.xml" rel="self"/>
+  
+  <link href="https://dev.research.wdss.io/"/>
+  <updated>2021-03-31T20:59:05.641Z</updated>
+  <id>https://dev.research.wdss.io/</id>
+  
+  <author>
+    <name>Warwick Data Science Society</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://dev.research.wdss.io/r-example/"/>
+    <id>https://dev.research.wdss.io/r-example/</id>
+    <published>2021-03-31T20:59:05.641Z</published>
+    <updated>2021-03-31T20:59:05.641Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://dev.research.wdss.io/python-example/"/>
+    <id>https://dev.research.wdss.io/python-example/</id>
+    <published>2021-03-31T20:55:09.449Z</published>
+    <updated>2021-03-31T20:55:09.449Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
