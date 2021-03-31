@@ -1,4 +1,8 @@
 dist: focal
+cache:
+  bundler: true
+  directories:
+    - /img_cache
 branches:
   only:
   - main
@@ -6,6 +10,7 @@ services:
   - docker
 before_install:
   - chmod -R 777 .
+  - if [[ -d /img_cache ]]; then ls /img_cache/*.tar.gz | xargs -I {file} sh -c "zcat {file} | docker load"; fi
 install:
   # Set up Conda
   - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
@@ -26,6 +31,11 @@ before_script:
   - python build/build.py
 script:
   - hexo generate
+before_cache:
+  # Save tagged docker images
+  - >
+    mkdir -p /img_cache && docker images -a --filter='dangling=false' --format '{{.Repository}}:{{.Tag}} {{.ID}}'
+    | xargs -n 2 -t sh -c 'test -e /img_cache/$1.tar.gz || docker save $0 | gzip -2 > /img_cache/$1.tar.gz'
 deploy:
   provider: pages
   skip-cleanup: true
